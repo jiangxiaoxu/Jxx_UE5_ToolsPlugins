@@ -19,7 +19,7 @@ EStateTreeRunStatus FJxxFindAndClaimSmartObjectTask::EnterState(FStateTreeExecut
 	FSmartObjectRequestResult FindResult = SmartObjectSubsystem.FindSmartObject(InstanceData.Request);
 	if (FindResult.IsValid())
 	{
-		FSmartObjectClaimHandle ClaimedSlot = SmartObjectSubsystem.MarkSlotAsClaimed(FindResult.SlotHandle);
+		FSmartObjectClaimHandle ClaimedSlot = SmartObjectSubsystem.MarkSlotAsClaimed(FindResult.SlotHandle, InstanceData.ClaimPriority);
 		if (ClaimedSlot.IsValid())
 		{
 			InstanceData.ClaimedHandle = ClaimedSlot;

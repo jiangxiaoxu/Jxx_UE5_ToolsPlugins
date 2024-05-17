@@ -19,6 +19,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = Parameter)
 	FSmartObjectRequest Request;
 
+	//ClaimPriority Claim priority, a slot claimed at lower priority can be claimed by higher priority (unless already in use).
+	UPROPERTY(EditAnywhere, Category = Parameter)
+	ESmartObjectClaimPriority ClaimPriority = ESmartObjectClaimPriority::Normal;
+
 	UPROPERTY(EditAnywhere, Category = Output)
 	FSmartObjectClaimHandle ClaimedHandle;
 };

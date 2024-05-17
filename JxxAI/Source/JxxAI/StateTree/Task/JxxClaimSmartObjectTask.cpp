@@ -16,7 +16,7 @@ EStateTreeRunStatus FJxxClaimSmartObjectTask::EnterState(FStateTreeExecutionCont
 	FInstanceDataType& InstanceData = Context.GetInstanceData(*this);
 	USmartObjectSubsystem& SmartObjectSubsystem = Context.GetExternalData(SmartObjectSubsystemHandle);
 
-	FSmartObjectClaimHandle ClaimedSlot = SmartObjectSubsystem.MarkSlotAsClaimed(InstanceData.SlotHandle);
+	FSmartObjectClaimHandle ClaimedSlot = SmartObjectSubsystem.MarkSlotAsClaimed(InstanceData.SlotHandle, InstanceData.ClaimPriority);
 	if (ClaimedSlot.IsValid())
 	{
 		InstanceData.ClaimedHandle = ClaimedSlot;
